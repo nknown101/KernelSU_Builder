@@ -1,10 +1,10 @@
 LineageOS-20:
   kernel:
-    - git clone https://github.com/HowWof/android_kernel_realme_mt6785.git -b lineage-20
+    - git clone https://github.com/nknown101/kernel_xiaomi_sm6250.git -b kinesis-extremev5
   clang:
     - git clone --depth=1 https://gitlab.com/Jprimero15/lolz_clang.git -b main
   config:
-    - make O=out ARCH=arm64 lineage-nashc_defconfig
+    - make O=out ARCH=arm64 stock_defconfig
   build:
     - ARCH=arm64 CROSS_COMPILE="${PWD}/clang/bin/aarch64-linux-gnu-" CROSS_COMPILE_COMPAT="${PWD}/clang/bin/arm-linux-gnueabi" CROSS_COMPILE_ARM32="${PWD}/clang/bin/arm-linux-gnueabi-" CLANG_TRIPLE=aarch64-linux-gnu- make -j$(nproc --all) LLVM=1 LLVM_IAS=1 LD=ld.lld AR=llvm-ar NM=llvm-nm AS=llvm-as OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump STRIP=llvm-strip O=out
   target:
@@ -75,7 +75,7 @@ Clean:
 KernelSU:
   version:
     stable-pin:
-      - curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s kernelsu-version
+      - curl -LSs "curl -LSs "https://raw.githubusercontent.com/rifsxd/KernelSU-Next/next-susfs/kernel/setup.sh" | bash -s next-susfs" | bash -s kernelsu-version
     stable:
       - curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
     unstable:
